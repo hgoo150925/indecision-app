@@ -12,4 +12,8 @@ Run app
 
 `yarn dev`
 
+## Vitest
+
 Se agrega Unit Test a la app
+
+`yarn add -D vitest`
