@@ -1,4 +1,4 @@
-import { describe, test } from 'vitest'
+import { describe, test, expect } from 'vitest'
 
 describe('Testing...', () => {
     test('Debe de ser mayor a 10', () => {
@@ -6,12 +6,8 @@ describe('Testing...', () => {
         let value = 5;
 
         // Estimulo 
-        value += 12;
+        value += 10;
         // Observar el resultado
-        if (value > 10) {
-            return 'Ok';
-        } else {
-            throw `${value} no es mayor a 10`;
-        }
+        expect(value).toBeGreaterThan(10)
     })
 })
