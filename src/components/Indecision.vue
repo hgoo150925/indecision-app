@@ -4,7 +4,8 @@
   <div class="indecision-container">
     <input v-model="question" type="text" placeholder="Hazme una pregunta" />
     <p>Recuerda terminar con un signo de interrogacion</p>
-    <div>
+    <!-- isValidQuestion si la pregunta es valida, se muestra la pregunta -->
+    <div v-if="isValidQuestion">
       <h2>{{ question }}</h2>
       <h1>{{ answer }}</h1>
     </div>
@@ -18,6 +19,7 @@ export default {
       question: '',
       answer: null,
       image: null,
+      isValidQuestion: false,
     };
   },
 
@@ -28,10 +30,12 @@ export default {
   // Si existe ese cambio, watch permite realizar cualquier accion que querramos
   watch: {
     question(newValue, oldValue) {
+      this.isValidQuestion = false;
       // Si el nuevo valor de question no incluye un singo de interrogacion, que no haga nada
       if (!newValue.includes('?')) {
         return;
       }
+      this.isValidQuestion = true;
       // https://yesno.wtf/
       this.getAnswer();
     },
