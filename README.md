@@ -17,3 +17,7 @@ Run app
 Se agrega Unit Test a la app
 
 `yarn add -D vitest`
+
+Run test
+
+`yarn test`
